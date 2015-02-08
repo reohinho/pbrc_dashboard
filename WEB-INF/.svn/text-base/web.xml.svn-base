@@ -1,0 +1,170 @@
+<?xml version = '1.0' encoding = 'Big5'?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5" xmlns="http://java.sun.com/xml/ns/javaee">
+  
+  
+  <servlet>
+    <servlet-name>UtilizationChart</servlet-name>
+    <servlet-class>hk.org.ha.pbrc.dashboard.servlet.UtilizationChart</servlet-class>
+    <init-param>
+      <description>properties file</description>
+      <param-name>configFile</param-name>
+      <param-value>util.properties</param-value>
+    </init-param>
+  </servlet>
+  <servlet>
+    <servlet-name>ImmMeasurementServlet</servlet-name>
+    <servlet-class>hk.org.ha.pbrc.dashboard.servlet.ImmMeasurementServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>GcrsTrendServlet</servlet-name>
+    <servlet-class>hk.org.ha.pbrc.dashboard.servlet.GcrsTrendServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>WorkflowMeasureServlet</servlet-name>
+    <servlet-class>hk.org.ha.pbrc.dashboard.servlet.WorkflowMeasureServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>PmiMeasureServlet</servlet-name>
+    <servlet-class>hk.org.ha.pbrc.dashboard.servlet.PmiMeasureServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DashboardMeasureServlet</servlet-name>
+    <servlet-class>hk.org.ha.pbrc.dashboard.servlet.DashboardMeasureServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>PmiTrendServlet</servlet-name>
+    <servlet-class>hk.org.ha.pbrc.dashboard.servlet.PmiTrendServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>BlockingMeasureServlet</servlet-name>
+    <servlet-class>hk.org.ha.pbrc.dashboard.servlet.OracleMeasureServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>OutStandingBalanceTrendServlet</servlet-name>
+    <servlet-class>hk.org.ha.pbrc.dashboard.servlet.OutStandingBalanceTrendServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>OutstandingBalanceMeasureServlet</servlet-name>
+    <servlet-class>hk.org.ha.pbrc.dashboard.servlet.OutstandingBalanceMeasureServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ImmTransactionServlet</servlet-name>
+    <servlet-class>hk.org.ha.pbrc.dashboard.servlet.ImmTransactionServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ImmPmiTrendServlet</servlet-name>
+    <servlet-class>hk.org.ha.pbrc.dashboard.servlet.ImmPmiTrendServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Oc4jMeasureServlet</servlet-name>
+    <servlet-class>hk.org.ha.pbrc.dashboard.servlet.Oc4jMeasureServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ReportMeasureServlet</servlet-name>
+    <servlet-class>hk.org.ha.pbrc.dashboard.servlet.ReportMeasureServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DashboardServlet</servlet-name>
+    <servlet-class>hk.org.ha.pbrc.dashboard.servlet.DashboardServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>EndToEndMeasurementServlet</servlet-name>
+    <servlet-class>hk.org.ha.pbrc.dashboard.servlet.EndToEndMeasurementServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UtilizationChart</servlet-name>
+    <url-pattern>/utilizationchart</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ImmTransactionServlet</servlet-name>
+    <url-pattern>/immtransactionservlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GcrsTrendServlet</servlet-name>
+    <url-pattern>/gcrstrendservlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WorkflowMeasureServlet</servlet-name>
+    <url-pattern>/workflowmeasureservlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>PmiMeasureServlet</servlet-name>
+    <url-pattern>/pmimeasureservlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DashboardMeasureServlet</servlet-name>
+    <url-pattern>/dashboardmeasureservlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>PmiTrendServlet</servlet-name>
+    <url-pattern>/pmitrendservlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>BlockingMeasureServlet</servlet-name>
+    <url-pattern>/blockingmeasureservlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>OutStandingBalanceTrendServlet</servlet-name>
+    <url-pattern>/outstandingbalancetrendservlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>OutstandingBalanceMeasureServlet</servlet-name>
+    <url-pattern>/outstandingbalancemeasureservlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ImmMeasurementServlet</servlet-name>
+    <url-pattern>/immmeasureservlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ImmPmiTrendServlet</servlet-name>
+    <url-pattern>/immpmitrendservlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Oc4jMeasureServlet</servlet-name>
+    <url-pattern>/oc4jmeasureservlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ReportMeasureServlet</servlet-name>
+    <url-pattern>/reportmeasureservlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DashboardServlet</servlet-name>
+    <url-pattern>/dashboardservlet</url-pattern>
+  </servlet-mapping>
+<filter>
+    <filter-name>SessionCheckFilter</filter-name>
+    <filter-class>hk.org.ha.pbrc.dashboard.filter.SessionCheckFilter</filter-class>
+</filter>
+<filter-mapping>
+    <filter-name>SessionCheckFilter</filter-name>
+    <url-pattern>*.jsp</url-pattern>    
+</filter-mapping>
+  <servlet-mapping>
+    <servlet-name>EndToEndMeasurementServlet</servlet-name>
+    <url-pattern>/endtoendmeasurementservlet</url-pattern>
+  </servlet-mapping>
+  <resource-ref>
+    <description>PBRC Datasource</description>
+    <res-ref-name>jdbc/dashboard-corp-s1-dashboard-ds</res-ref-name>
+    <res-type>javax.sql.DataSource</res-type>
+    <res-auth>Container</res-auth>
+</resource-ref>
+<resource-ref>
+    <description>MiniBar Datasource</description>
+    <res-ref-name>jdbc/pbrcbar-corp-cutover-s1-pbrc-staging-ds</res-ref-name>
+    <res-type>javax.sql.DataSource</res-type>
+    <res-auth>Container</res-auth>
+</resource-ref>
+<resource-ref>
+        <description>PBRC Hub Datasource</description>
+        <res-ref-name>jdbc/dashboard-corp-s3-pbrc-hub-ds</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+</resource-ref>
+<welcome-file-list>
+   <welcome-file>dashboardservlet</welcome-file>
+</welcome-file-list>
+
+</web-app>

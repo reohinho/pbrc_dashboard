@@ -1,0 +1,31 @@
+package hk.org.ha.pbrc.dashboard.scheduler;
+
+import org.quartz.Job;
+import org.quartz.JobDetail;
+import org.quartz.Scheduler;
+import org.quartz.SchedulerFactory;
+import org.quartz.impl.StdSchedulerFactory;
+import org.quartz.impl.triggers.CronTriggerImpl;
+
+public class CronScheduler {
+
+    /*
+        public CronScheluder() throws Exception {
+        
+        SchedulerFactory sf = new StdSchedulerFactory();
+        
+        Scheduler sche = sf.getScheduler();
+        
+        sche.start();
+        
+        //JobDetail reportMonitorJobDetail = new Job(ReportMonitorJob)
+        
+        //"0 0 12 * * ?" Fire at 12pm (noon) every day
+        //"0/2 * * * * ?" Fire at every 2 seconds every day
+        
+        CronTriggerImpl crTrigger = new CronTriggerImpl("cronTrigger", Scheduler.DEFAULT_GROUP, "0/2 * * * * ?");
+        
+        //sche.scheduleJob(reportMonitorJobDetail, crTrigger);
+    }
+    */
+}

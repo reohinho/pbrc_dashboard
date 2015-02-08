@@ -1,0 +1,71 @@
+package hk.org.ha.pbrc.dashboard.servlet;
+
+import hk.org.ha.pbrc.dashboard.utilities.DateUtilities;
+import hk.org.ha.pbrc.dashboard.bean.WorkflowSampleBean;
+import hk.org.ha.pbrc.dashboard.dao.WorkflowMeasureDao;
+
+import java.util.List;
+import java.util.Vector;
+
+import javax.servlet.http.*;
+
+public class WorkflowMeasureServlet extends MeasurementServlet {
+
+    @SuppressWarnings("compatibility:8751845787678257805")
+    private static final long serialVersionUID = 1L;
+
+    protected Vector getResult(HttpServletRequest request){
+    
+        String type = request.getParameter("type");
+        String previousDate = request.getParameter("previousDate");
+        Vector result = new Vector();  
+        
+        if(previousDate==null||previousDate.equals("")) {
+            previousDate = DateUtilities.getDate("dd-MM-yyyy", -1);
+        }
+        
+        if (type.equals("Daytime") ) {        
+             WorkflowMeasureDao dao = new WorkflowMeasureDao();
+             result.add(dao.getWorkflowDaytime(previousDate));
+             result.add(dao.getWorkflowDaytime(DateUtilities.getCurrentDate("dd-MM-yyyy")));    
+        }            
+        else {        
+            WorkflowMeasureDao dao = new WorkflowMeasureDao();
+            result.add(dao.getWorkflowDayend(previousDate));
+            result.add(dao.getWorkflowDayend(DateUtilities.getCurrentDate("dd-MM-yyyy")));         
+        }
+        return result;    
+    }
+    
+    protected String toString(Vector vec) {
+        
+        List<WorkflowSampleBean> list = (List<WorkflowSampleBean>)vec.get(0);
+        List<WorkflowSampleBean> list2 = (List<WorkflowSampleBean>)vec.get(1);
+
+                
+        String jsonString = "{ \"cols\": [{\"id\":\"\",\"label\":\"time\",\"type\":\"string\"},{\"id\":\"\",\"label\":\"corp (previous)\",\"type\":\"number\"},{\"id\":\"\",\"label\":\"non-corp (previous)\",\"type\":\"number\"},{\"id\":\"\",\"label\":\"corp\",\"type\":\"number\"},{\"id\":\"\",\"label\":\"non-corp\",\"type\":\"number\"}],\"rows\":["; 
+        for(int i=0; i<list.size();i++) {   
+
+            WorkflowSampleBean bean = list.get(i);                  
+            if(i<list2.size()) {
+                WorkflowSampleBean bean2 = list2.get(i);
+                jsonString += "{\"c\":[{\"v\":\""+bean.getLabel()+"\"},{\"v\":"+bean.getCorpValue()+"},{\"v\":"+bean.getNonCorpValue()+"},{\"v\":"+bean2.getCorpValue()+"},{\"v\":"+bean2.getNonCorpValue()+"}]}\n "; 
+            }
+            else{
+                jsonString += "{\"c\":[{\"v\":\""+bean.getLabel()+"\"},{\"v\":"+bean.getCorpValue()+"},{\"v\":"+bean.getNonCorpValue()+"}]}\n "; 
+            }
+
+            if(i<287) {
+                jsonString += ",";
+            }
+        }
+        jsonString += "]}"; 
+        
+        return jsonString;                                                                                                                                                                                                         
+    }
+    
+    protected Vector getResultCR(HttpServletRequest request) {
+        Vector result = new Vector();
+        return result;        
+    }    
+}

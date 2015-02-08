@@ -1,0 +1,17 @@
+package hk.org.ha.pbrc.dashboard.scheduler;
+import org.quartz.Job;
+import org.quartz.JobExecutionContext;
+import org.quartz.JobExecutionException;
+
+public class ReportMonitorJob implements Job {
+    
+    public ReportMonitorJob() {
+        
+    }
+    
+    public void execute(JobExecutionContext context) throws JobExecutionException {
+    
+      System.out.println("Cron executing ");
+        
+    }
+}

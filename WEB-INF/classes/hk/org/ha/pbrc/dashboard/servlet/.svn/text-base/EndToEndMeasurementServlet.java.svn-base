@@ -1,0 +1,118 @@
+package hk.org.ha.pbrc.dashboard.servlet;
+
+import hk.org.ha.pbrc.dashboard.bean.SampleBean;
+import hk.org.ha.pbrc.dashboard.bean.SeriesBean;
+import hk.org.ha.pbrc.dashboard.dao.ImmMeasureDao;
+import hk.org.ha.pbrc.dashboard.jdbc.DataSource;
+
+import hk.org.ha.pbrc.dashboard.utilities.DateUtilities;
+
+import java.sql.Connection;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Vector;
+
+import javax.servlet.http.*;
+
+public class EndToEndMeasurementServlet extends MeasurementServlet {
+    private static final String CONTENT_TYPE = "text/html; charset=Big5";
+    
+    @SuppressWarnings("compatibility:-3145195992198277634")
+    private static final long serialVersionUID = 1L;
+
+    protected Vector getResult(HttpServletRequest request){      
+        Connection conn = null;     
+        Vector result = new Vector();
+        try {
+            String sourceSys = request.getParameter("sourceSys");
+            conn = DataSource.getMBarConnection();             
+            
+            ImmMeasureDao dao = new ImmMeasureDao();
+            String[] hospitalCde = new String[7];
+            String[] measureType = new String[4];
+            String[] subTypeSuffix = new String[4];
+            String hospitalList = "PMH|PWH|QEH|QMH|PYN|UCH|TMH";
+            String measureTypeList = "MB_TIME|MB_TIME|IMM_TIME|IMM_TIME";            
+            String subTypeSuffixList = "SRC|MBCL|INSERT|DELETE";
+            if(sourceSys!=null&&sourceSys.equals("GCRSLIS")) {                
+                hospitalList = "PWH|QEH|QMH|PMH|PWH|QEH|QMH";
+            }            
+            hospitalCde = hospitalList.split("\\|");                                    
+            measureType = measureTypeList.split("\\|");
+            subTypeSuffix = subTypeSuffixList.split("\\|");
+            
+            int i = 0;
+            int j = 0;
+            String[] subType = {
+            sourceSys+"-"+hospitalCde[i]+"-"+subTypeSuffix[j++], 
+            sourceSys+"-"+hospitalCde[i]+"-"+subTypeSuffix[j++], 
+            sourceSys+"-"+hospitalCde[i]+"-"+subTypeSuffix[j++], 
+            sourceSys+"-"+hospitalCde[i]+"-"+subTypeSuffix[j++]};            
+            result.add(dao.getBeansByMeasureType(conn, measureType, subType, DateUtilities.getCurrentDate("yyyyMMdd"))); 
+            i++;
+            for (j = 0; j < subTypeSuffix.length; j++) { subType[j] = sourceSys+"-"+hospitalCde[i]+"-"+subTypeSuffix[j]; }                        
+            result.add(dao.getBeansByMeasureType(conn, measureType, subType, DateUtilities.getCurrentDate("yyyyMMdd")));            
+            i++;
+            for (j = 0; j < subTypeSuffix.length; j++) { subType[j] = sourceSys+"-"+hospitalCde[i]+"-"+subTypeSuffix[j]; }                        
+            result.add(dao.getBeansByMeasureType(conn, measureType, subType, DateUtilities.getCurrentDate("yyyyMMdd")));                     
+            i++;            
+            if(sourceSys!=null&&sourceSys.equals("GCRSLIS")) {                
+                sourceSys = "GCRSRIS";
+            }  
+            for (j = 0; j < subTypeSuffix.length; j++) { subType[j] = sourceSys+"-"+hospitalCde[i]+"-"+subTypeSuffix[j]; }                        
+            result.add(dao.getBeansByMeasureType(conn, measureType, subType, DateUtilities.getCurrentDate("yyyyMMdd")));   
+            i++;
+            for (j = 0; j < subTypeSuffix.length; j++) { subType[j] = sourceSys+"-"+hospitalCde[i]+"-"+subTypeSuffix[j]; }                        
+            result.add(dao.getBeansByMeasureType(conn, measureType, subType, DateUtilities.getCurrentDate("yyyyMMdd"))); 
+            i++;
+            for (j = 0; j < subTypeSuffix.length; j++) { subType[j] = sourceSys+"-"+hospitalCde[i]+"-"+subTypeSuffix[j]; }                        
+            result.add(dao.getBeansByMeasureType(conn, measureType, subType, DateUtilities.getCurrentDate("yyyyMMdd"))); 
+            i++;
+            for (j = 0; j < subTypeSuffix.length; j++) { subType[j] = sourceSys+"-"+hospitalCde[i]+"-"+subTypeSuffix[j]; }                        
+            result.add(dao.getBeansByMeasureType(conn, measureType, subType, DateUtilities.getCurrentDate("yyyyMMdd"))); 
+                    
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        finally {
+            if (conn!=null) try { conn.close(); } catch (Exception e) { e.printStackTrace(); }
+        }
+        return result;      
+    }
+    
+    protected String toString(Vector vec) {        
+        SeriesBean srcBean = new SeriesBean("SRC");
+        SeriesBean mbclBean = new SeriesBean("MBCL");
+        SeriesBean immInsBean = new SeriesBean("IMM_INSERT");
+        SeriesBean immDelBean = new SeriesBean("IMM_DELETE");
+        List<SampleBean> list = new ArrayList<SampleBean>();
+        for (int j = 0; j < vec.size(); j ++) {                       
+            list = (List<SampleBean>)vec.get(j);        
+            for (int i = 0; i < list.size() ; i++ ) {
+                SampleBean bean = list.get(i); 
+                switch(i) {
+                case 0:
+                    srcBean.addValue(bean.getValue());                
+                    break;
+                case 1:
+                    mbclBean.addValue(bean.getValue());  
+                    break;
+                case 2:
+                    immInsBean.addValue(bean.getValue());                
+                    break;
+                case 3:
+                    immDelBean.addValue(bean.getValue());     
+                    break;
+                };                    
+            }                        
+        }        
+        return "{\"data\":"+immDelBean.toString()+", \"data2\":"+immInsBean.toString()+", \"data3\":"+mbclBean.toString()+", \"data4\":"+srcBean.toString()+"}";
+    }
+    
+    protected Vector getResultCR(HttpServletRequest request) {
+        Vector result = new Vector();
+        return result;        
+    }    
+}

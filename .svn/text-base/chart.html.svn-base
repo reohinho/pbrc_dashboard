@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+ 
+        var data = new google.visualization.DataTable();
+        data.addColumn('datetime', 'Date');
+        data.addColumn('number', 'Quantity');
+        data.addRow([new Date(2011, 0, 1,15,10,2), 10])
+        data.addRow([new Date(2011, 0, 1,8,2,10), 15])
+        data.addRow([new Date(2011, 0, 2,5,6,7), 12])
+        data.addRow([new Date(2011, 0, 2,0,0,0), 18])
+        data.addRow([new Date(2011, 0, 2,23,12,55), 17])
+ 
+ 
+    // Create and draw the visualization.
+    var chart = new google.visualization.ScatterChart(
+        document.getElementById('chart_div'));
+    chart.draw(data, {title: 'Test',
+                      width: 600, height: 400,
+                      vAxis: {title: "cr", minValue: 10, maxValue: 100},
+                      hAxis: {title: "time"}
+                      }
+              );
+        
+      }
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width:400; height:250;"></div>
+  </body>
+</html>
