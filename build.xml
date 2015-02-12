@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." default="build" name="">
+    <property name="name" value=""/>
+    <property location="${basedir}/WEB-INF/build" name="build"/>
+    <property location="${build}/WEB-INF/classes" name="build.classes"/>
+    <property location="${basedir}/WEB-INF/src" name="src.dir"/>
+    <!--Application build-->
+    <target depends="clean" description="Builds the application" name="build">
+        <!--Create directory-->
+        <mkdir dir="${build.classes}"/>        
+        <!--Compile source code-->
+        <javac debug="false" deprecation="true" destdir="${build.classes}" includeantruntime="true" optimize="true" srcdir="${src.dir}">
+          <classpath>
+            <pathelement path="${build.classes}"/>
+            <fileset dir="${basedir}/WEB-INF/lib">
+              <include name="**/*.jar"/>
+            </fileset>
+          </classpath>
+        </javac>
+        <!--Copy necessary files-->
+        <copy todir="${build.classes}">
+            <fileset dir="${src.dir}" excludes="**/*.java" includes="**/*.*"/>
+        </copy>
+        <!--Create JAR-file-->
+        <jar jarfile="${build}/pbrc_dashboard.jar">
+            <fileset dir="${build.classes}"/>
+        </jar>
+    </target>
+    <!--Clean up-->
+    <target description="Remove all temporary files" name="clean">
+        <!--Delete files-->
+        <delete dir="${build.classes}"/>
+    </target>
+</project>
