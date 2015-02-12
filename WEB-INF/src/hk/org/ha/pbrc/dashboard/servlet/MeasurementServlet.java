@@ -21,25 +21,15 @@ public abstract class MeasurementServlet extends HttpServlet {
     public void doGet(HttpServletRequest request,
                       HttpServletResponse response) throws ServletException,
                                                            IOException {        
-        response.setContentType(CONTENT_TYPE);        
+        response.setContentType(CONTENT_TYPE);               
         
-        String isCR = request.getParameter("isCR");
-        
-        PrintWriter out = response.getWriter();
-        Vector result;
-        if (isCR !=null && isCR.equals("Y")){
-            result = getResultCR(request);         
-        }
-        else {
-            result = getResult(request);
-        }
-            
-        String jsonString = toString(result);
+        PrintWriter out = response.getWriter();                    
+        String jsonString = toString(request);
         out.write(jsonString);
     }
     
     protected abstract Vector getResult(HttpServletRequest request);    
     protected abstract Vector getResultCR(HttpServletRequest request);        
-    protected abstract String toString(Vector vec);
+    protected abstract String toString(HttpServletRequest request);
 
 }

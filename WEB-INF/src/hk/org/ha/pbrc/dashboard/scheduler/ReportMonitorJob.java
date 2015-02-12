@@ -14,10 +14,13 @@ import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 
+import javax.servlet.http.*;
+
+
 public class ReportMonitorJob implements Job {
    
     public void execute(JobExecutionContext context) throws JobExecutionException {
-    
+      /*
       System.out.println("Cron executing ");
       try {
           
@@ -676,10 +679,12 @@ public class ReportMonitorJob implements Job {
       catch (Exception e) {
           e.printStackTrace();
       }
+      */
     }
     
     
-    public String toString(Vector vec) {        
+    public String toString(HttpServletRequest request) {        
+        /*
         StringBuffer str = new StringBuffer("<table class=\"table\">\n" + 
         "    <thead>\n" + 
         "        <tr>\n" + 
@@ -706,6 +711,8 @@ public class ReportMonitorJob implements Job {
         }
         str.append("</table>");        
         return str.toString();                                                                                                                                                                                                        
+        */
+        return null;
     }
     
     public Vector getResult(){

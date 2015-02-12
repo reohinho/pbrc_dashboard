@@ -16,18 +16,14 @@ public class WorkflowMeasureServlet extends MeasurementServlet {
     @SuppressWarnings("compatibility:8751845787678257805")
     private static final long serialVersionUID = 1L;
 
-    protected Vector getResult(HttpServletRequest request){
-    
-        String type = request.getParameter("type");
-        String previousDate = request.getParameter("previousDate");        
-        WorkflowMonitorJob job = new WorkflowMonitorJob();
-        Vector result = job.getResult(type, previousDate);            
-        return result;    
-    }
-    
-    protected String toString(Vector vec) {        
+    protected Vector getResult(HttpServletRequest request) {
+        Vector result = new Vector();
+        return result;        
+    }   
+  
+    protected String toString(HttpServletRequest request) {        
         WorkflowMonitorJob job = new WorkflowMonitorJob();                                                                                                                                                                                                
-        return job.toString(vec);
+        return job.toString(request);
     }
     
     protected Vector getResultCR(HttpServletRequest request) {

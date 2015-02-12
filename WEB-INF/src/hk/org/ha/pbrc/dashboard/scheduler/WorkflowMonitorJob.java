@@ -16,6 +16,9 @@ import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 
+import javax.servlet.http.*;
+
+
 public class WorkflowMonitorJob implements Job {
     
     public WorkflowMonitorJob() {
@@ -23,7 +26,7 @@ public class WorkflowMonitorJob implements Job {
     }
     
     public void execute(JobExecutionContext jobExecutionContext) throws JobExecutionException {
-        
+        /*
         try {
             FileWriter pmiWriterDaytime = new FileWriter(AppConstants.DATASOURCE_TXT_FOLDER+AppConstants.WKF_DAYTIME_FILE_WRITER);
             pmiWriterDaytime.write(toString(getResult("Daytime", "")));      
@@ -35,7 +38,8 @@ public class WorkflowMonitorJob implements Job {
         }
         catch(Exception e) {
             e.printStackTrace();
-        }               
+        } 
+        */
         
     }        
     
@@ -59,7 +63,8 @@ public class WorkflowMonitorJob implements Job {
         return result;    
     }
     
-    public String toString(Vector vec) {       
+    public String toString(HttpServletRequest request) {   
+        /*
         List<WorkflowSampleBean> list = (List<WorkflowSampleBean>)vec.get(0);
         List<WorkflowSampleBean> list2 = (List<WorkflowSampleBean>)vec.get(1);
 
@@ -83,5 +88,7 @@ public class WorkflowMonitorJob implements Job {
         jsonString += "]}"; 
         
         return jsonString;                                                                                                                                                                                             
+        */
+    	  return null;
     }
 }

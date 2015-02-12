@@ -49,9 +49,13 @@ public class PmiMeasureServlet extends MeasurementServlet {
         return result;        
     }
     
-    protected String toString(Vector vec) {       
+    protected String toString(HttpServletRequest request) {   
+      
+        /*
         PmiMonitorJob job = new PmiMonitorJob();
         return job.toString(vec);
+        */
+        return null;
     }
     
 }

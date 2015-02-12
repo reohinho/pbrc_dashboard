@@ -23,8 +23,8 @@ public class ImmPmiTrendServlet extends MeasurementServlet {
         return result;        
     }
     
-    protected String toString(Vector vec) {
-        
+    protected String toString(HttpServletRequest request) {
+        /*
         List<SampleBean> list = (List<SampleBean>)vec.get(0);
         List<SampleBean> list2 = (List<SampleBean>)vec.get(1);
                 
@@ -47,6 +47,8 @@ public class ImmPmiTrendServlet extends MeasurementServlet {
         jsonString += "]}"; 
         
         return jsonString;                                                                                                                                                                                                         
+        */
+        return null;
     }
     
     protected Vector getResultCR(HttpServletRequest request) {

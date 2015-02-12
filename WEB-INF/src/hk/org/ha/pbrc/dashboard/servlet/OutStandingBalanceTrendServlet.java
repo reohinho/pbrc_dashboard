@@ -22,8 +22,9 @@ public class OutStandingBalanceTrendServlet extends MeasurementServlet {
         return result;
     }
 
-    protected String toString(Vector vec) {
-
+    protected String toString(HttpServletRequest request) {
+      
+        /*
         List<OutStandingBalanceBean> list =
             (List<OutStandingBalanceBean>)vec.get(0);
         List<OutStandingBalanceBean> list2 =
@@ -52,6 +53,8 @@ public class OutStandingBalanceTrendServlet extends MeasurementServlet {
         jsonString += "]}";
 
         return jsonString;
+        */
+        return null;
     }
 
     protected Vector getResultCR(HttpServletRequest request) {

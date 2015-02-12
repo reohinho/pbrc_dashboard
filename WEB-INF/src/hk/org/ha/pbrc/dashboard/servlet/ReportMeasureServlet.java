@@ -14,9 +14,9 @@ public class ReportMeasureServlet extends MeasurementServlet {
         return job.getResult();
     }
     
-    protected String toString(Vector vec) {        
+    protected String toString(HttpServletRequest request) {        
         ReportMonitorJob job = new ReportMonitorJob();
-        return job.toString(vec);
+        return job.toString(request);
     }
     
     protected Vector getResultCR(HttpServletRequest request) {

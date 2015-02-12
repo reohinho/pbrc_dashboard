@@ -19,7 +19,9 @@ public class OracleMeasureServlet extends MeasurementServlet {
         return result;        
     }
     
-    protected String toString(Vector vec) {        
+    protected String toString(HttpServletRequest request) {        
+        
+        /*
         SampleBean bean = (SampleBean)vec.get(0);   
         StringBuffer str = new StringBuffer("<b>Blocking Session: </b>");
         int cnt = bean.getValue();
@@ -32,6 +34,8 @@ public class OracleMeasureServlet extends MeasurementServlet {
         str.append("</p><span>&nbsp;</span>");
        
         return str.toString();                                                                                                                                                                                                        
+        */
+        return null;
     }
     
     protected Vector getResultCR(HttpServletRequest request) {

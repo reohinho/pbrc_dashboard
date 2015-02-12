@@ -59,8 +59,9 @@ public class Oc4jMeasureServlet extends MeasurementServlet {
         return result;        
     }
     
-    protected String toString(Vector vec) {
+    protected String toString(HttpServletRequest request) {
         
+      /*
         List<UtilizationSampleBean> list = (ArrayList<UtilizationSampleBean>)vec.get(0);
         List<UtilizationSampleBean> list2 = (ArrayList<UtilizationSampleBean>)vec.get(1);
         List<UtilizationSampleBean> list3 = (ArrayList<UtilizationSampleBean>)vec.get(2);
@@ -80,6 +81,8 @@ public class Oc4jMeasureServlet extends MeasurementServlet {
         jsonString += "]}"; 
         
         return jsonString;                                                                                                                                                                                                         
+      */
+      return null;
     }
 
     protected Vector getResultCR(HttpServletRequest request) {

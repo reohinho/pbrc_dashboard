@@ -17,7 +17,9 @@ public class OutstandingBalanceMeasureServlet extends MeasurementServlet {
         return result;
     }
 
-    protected String toString(Vector vec) {     
+    protected String toString(HttpServletRequest request) {    
+      
+        /*
         SampleBean bean = (SampleBean)vec.get(0);
         StringBuffer str = new StringBuffer("<b>Response Time: </b>");
         int cnt = bean.getValue();
@@ -26,6 +28,8 @@ public class OutstandingBalanceMeasureServlet extends MeasurementServlet {
         str.append("<span>&nbsp;</span></p>");
         
         return str.toString();   
+        */
+        return null;
     }
     
     protected Vector getResultCR(HttpServletRequest request) {

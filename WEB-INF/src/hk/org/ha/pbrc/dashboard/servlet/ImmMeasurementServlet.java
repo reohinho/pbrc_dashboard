@@ -60,10 +60,14 @@ public class ImmMeasurementServlet extends MeasurementServlet {
         return result;         
     }
     
-    protected String toString(Vector vec) {        
+    protected String toString(HttpServletRequest request) {        
+        
+      /*
         List<SampleBean> list = (List<SampleBean>)vec.get(0);        
         SampleBean bean = list.get(0);        
         return bean.getValue().toString();                                                                                                                                                                                                   
+       */
+      return null;
     }
     
 }

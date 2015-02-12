@@ -22,8 +22,9 @@ public class PmiTrendServlet extends MeasurementServlet {
         return result;        
     }
     
-    protected String toString(Vector vec) {
+    protected String toString(HttpServletRequest request) {
         
+        /*
         List<SampleBean> list = (List<SampleBean>)vec.get(0);
         List<SampleBean> list2 = (List<SampleBean>)vec.get(1);
         List<SampleBean> list3 = (List<SampleBean>)vec.get(2);
@@ -50,6 +51,8 @@ public class PmiTrendServlet extends MeasurementServlet {
         jsonString += "]}"; 
         
         return jsonString;                                                                                                                                                                                                         
+        */
+        return null;
     }
    
     protected Vector getResultCR(HttpServletRequest request) {

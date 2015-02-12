@@ -13,7 +13,7 @@ public class FTPClient
   private String host;
   /** The FTP user */
   private String user;
-  /** The FTP user¡¦s password */
+  /** The FTP user password */
   private String password;
   /** The remote file that needs to be uploaded or downloaded */
   private String remoteFile;
@@ -46,14 +46,14 @@ public class FTPClient
   {
     this.user = user;
   }
-  /** Setter method for the FTP user¡¦s password */
+  /** Setter method for the FTP users password */
   public void setPassword (String p)
   {
     this.password = p;
   }
   /** Setter method for the remote file, this must include the sub-directory path relative
-   to the user¡¦s home directory, e.g you¡¦e going to download a file that is within a sub directory
-   called ¡§sdir¡¨, and the file is named ¡§d.txt¡¨, so you shall include the path as ¡§sdir/d.txt¡¨
+   to the user's home directory, e.g you are going to download a file that is within a sub directory
+   called sdir, and the file is named txt, so you shall include the path as sdir/d.txt
   */
   public void setRemoteFile (String d)
   {
@@ -72,7 +72,7 @@ public class FTPClient
   /** The method that handles file uploading, this method takes the absolute file path
    of a local file to be uploaded to the remote FTP server, and the remote file will then
    be transfered to the FTP server and saved as the relative path name specified in method setRemoteFile
-   @param localfilename ¡V the local absolute file name of the file in local hard drive that needs to
+   @param localfilename ï¿½V the local absolute file name of the file in local hard drive that needs to
    FTP over
   */
   public synchronized boolean uploadFile (String localfilename)
@@ -103,7 +103,7 @@ public class FTPClient
     }
   }
   /** The method to download a file and save it onto the local drive of the client in the specified absolut path
-   @param localfilename ¡V the local absolute file name that the file needs to be saved as */
+   @param localfilename ï¿½V the local absolute file name that the file needs to be saved as */
   public synchronized boolean downloadFile (String localfilename)
   {
     try{

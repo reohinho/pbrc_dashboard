@@ -19,10 +19,11 @@ public class DashboardMeasureServlet extends MeasurementServlet {
         return result;        
     }
     
-    protected String toString(Vector vec) {
+    protected String toString(HttpServletRequest request) {
         
-        Timestamp ts = (Timestamp)vec.get(0);                
-        return "Last Updated: "+ts.toString().substring(0, 16); 
+        //Timestamp ts = (Timestamp)vec.get(0);                       
+        //return "Last Updated: "+ts.toString().substring(0, 16); 
+        return null;
                                                                                                                                                                                                  
     }
     

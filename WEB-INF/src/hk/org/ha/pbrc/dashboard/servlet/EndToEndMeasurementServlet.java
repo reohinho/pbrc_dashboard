@@ -30,9 +30,9 @@ public class EndToEndMeasurementServlet extends MeasurementServlet {
         return result;      
     }
     
-    protected String toString(Vector vec) {                        
+    protected String toString(HttpServletRequest request) {                        
         EndToEndMonitorJob job = new EndToEndMonitorJob();
-        return job.toString(vec);
+        return job.toString(request);
     }
     
     protected Vector getResultCR(HttpServletRequest request) {

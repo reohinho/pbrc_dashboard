@@ -36,7 +36,8 @@ public class ImmTransactionServlet extends MeasurementServlet {
         return result;        
     }
     
-    protected String toString(Vector vec) {      
+    protected String toString(HttpServletRequest request) {
+        /*
         List<SampleBean> list = (List<SampleBean>)vec.get(0);
                 
         StringBuffer sb = new StringBuffer();
@@ -53,7 +54,9 @@ public class ImmTransactionServlet extends MeasurementServlet {
             sb.append("</p>");
         }
         
-        return sb.toString();                                                                                                                                                                                                    
+        return sb.toString();        
+        */
+        return null;
     }
     
     protected Vector getResultCR(HttpServletRequest request) {

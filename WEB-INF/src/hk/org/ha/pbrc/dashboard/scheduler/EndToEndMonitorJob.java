@@ -19,13 +19,16 @@ import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 
+import javax.servlet.http.*;
+
+
 public class EndToEndMonitorJob implements Job {
     public EndToEndMonitorJob() {
         super();
     }
 
     public void execute(JobExecutionContext jobExecutionContext) throws JobExecutionException {
-        
+        /*
         try {
             FileWriter pmiWriter = new FileWriter(AppConstants.DATASOURCE_TXT_FOLDER+AppConstants.N2N_PMI_FILE_WRITER);
             pmiWriter.write(toString(getResult("PMI")));      
@@ -52,7 +55,7 @@ public class EndToEndMonitorJob implements Job {
         catch(Exception e) {
             e.printStackTrace();
         }
-
+		  */      
         
     }
     
@@ -116,33 +119,8 @@ public class EndToEndMonitorJob implements Job {
         return result;        
     }
     
-    public String toString(Vector vec) {        
-        SeriesBean srcBean = new SeriesBean("SRC");
-        SeriesBean mbclBean = new SeriesBean("MBCL");
-        SeriesBean immInsBean = new SeriesBean("IMM_INSERT");
-        SeriesBean immDelBean = new SeriesBean("IMM_DELETE");
-        List<SampleBean> list = new ArrayList<SampleBean>();
-        for (int j = 0; j < vec.size(); j ++) {                       
-            list = (List<SampleBean>)vec.get(j);        
-            for (int i = 0; i < list.size() ; i++ ) {
-                SampleBean bean = list.get(i); 
-                switch(i) {
-                case 0:
-                    srcBean.addValue(bean.getValue());                
-                    break;
-                case 1:
-                    mbclBean.addValue(bean.getValue());  
-                    break;
-                case 2:
-                    immInsBean.addValue(bean.getValue());                
-                    break;
-                case 3:
-                    immDelBean.addValue(bean.getValue());     
-                    break;
-                };                    
-            }                        
-        }        
-        return "{\"data\":"+immDelBean.toString()+", \"data2\":"+immInsBean.toString()+", \"data3\":"+mbclBean.toString()+", \"data4\":"+srcBean.toString()+"}";
+    public String toString(HttpServletRequest request) {        
+        return null;
     }
     
 }
