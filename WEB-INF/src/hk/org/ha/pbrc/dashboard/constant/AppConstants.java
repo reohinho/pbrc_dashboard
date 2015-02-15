@@ -37,5 +37,10 @@ public class AppConstants {
     public static final String PMI_MEASURE_FILE_WRITER = "pmi_measure.txt";
     public static final String WKF_DAYEND_FILE_WRITER = "wkf_dayend.txt";
     public static final String WKF_DAYTIME_FILE_WRITER = "wkf_daytime.txt";
+  
+  	 public static final String APP_KEY = "hpzkvjd93o0775l";
+    public static final String APP_SECRET = "vjrgouagf4s8r5e";
+
+    public static final String ACCESS_TOKEN = "eNPr90ZIh28AAAAAAAAACOWKgQ_3qgbROJD3-4bq7drJlJgijUS3PqHQjzlWIiAL";
     
 }

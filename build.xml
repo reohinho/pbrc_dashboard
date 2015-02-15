@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project basedir="." default="build" name="">
+  
     <property name="name" value=""/>
-    <property location="${basedir}/WEB-INF/build" name="build"/>
-    <property location="${build}/WEB-INF/classes" name="build.classes"/>
+    <property location="${basedir}" name="build"/>
     <property location="${basedir}/WEB-INF/src" name="src.dir"/>
+    <property location="${build}/classes" name="build.classes"/>
+    <property location="${build}/dist" name="dist.dir"/> 
+    
     <!--Application build-->
     <target depends="clean" description="Builds the application" name="build">
         <!--Create directory-->
-        <mkdir dir="${build.classes}"/>        
+        <mkdir dir="${build.classes}"/>   
+        <mkdir dir='${dist.dir}'/>
         <!--Compile source code-->
         <javac debug="false" deprecation="true" destdir="${build.classes}" includeantruntime="true" optimize="true" srcdir="${src.dir}">
           <classpath>
@@ -22,9 +26,10 @@
             <fileset dir="${src.dir}" excludes="**/*.java" includes="**/*.*"/>
         </copy>
         <!--Create JAR-file-->
-        <jar jarfile="${build}/pbrc_dashboard.jar">
-            <fileset dir="${build.classes}"/>
-        </jar>
+        <war jarfile="${dist.dir}/pbrc_dashboard.war">
+            <classes dir="${build.classes}"/>
+            <fileset dir="${basedir}"/>
+        </war>
     </target>
     <!--Clean up-->
     <target description="Remove all temporary files" name="clean">
