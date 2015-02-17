@@ -67,7 +67,7 @@ public class ImmMeasurementServlet extends MeasurementServlet {
         SampleBean bean = list.get(0);        
         return bean.getValue().toString();                                                                                                                                                                                                   
        */
-      return null;
+      return "0";
     }
     
 }

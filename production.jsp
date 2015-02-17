@@ -93,7 +93,7 @@ function drawPmiChart() {
 
 function drawCharts() {
     drawIMMGauge();
-    drawTable();
+    //drawTable();
 }
 
 function drawIMMGauge() {   
@@ -352,10 +352,10 @@ function drawIMMGauge() {
         title: "Source System"
     }); 
     
-    $('#lastUpd').load('dashboardmeasureservlet');
+    //$('#lastUpd').load('dashboardmeasureservlet');
     
     setInterval(function() {
-    $('#lastUpd').load('dashboardmeasureservlet');
+    //$('#lastUpd').load('dashboardmeasureservlet');
     $.get('immmeasureservlet?measureType=OPAS-BAR-QEH&subType=MINIBAR_PROCESSING', function (newValue) { opas_qeh_mbar_gauge.refresh(newValue); });
     $.get('immmeasureservlet?measureType=OPAS-BAR-QEH&subType=SOURCE_PROCESSING', function (newValue) { opas_qeh_src_gauge.refresh(newValue); });
     $.get('immmeasureservlet?measureType=GCRS-LIS-QEH&subType=MINIBAR_PROCESSING', function (newValue) { lis_qeh_mbar_gauge.refresh(newValue); });

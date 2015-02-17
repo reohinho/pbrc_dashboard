@@ -137,10 +137,6 @@
     <servlet-name>DashboardServlet</servlet-name>
     <url-pattern>/dashboardservlet</url-pattern>
   </servlet-mapping>
-<filter>
-    <filter-name>SessionCheckFilter</filter-name>
-    <filter-class>hk.org.ha.pbrc.dashboard.filter.SessionCheckFilter</filter-class>
-</filter>
   <servlet-mapping>
     <servlet-name>EndToEndMeasurementServlet</servlet-name>
     <url-pattern>/endtoendmeasurementservlet</url-pattern>
