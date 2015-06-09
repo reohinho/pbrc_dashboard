@@ -4,7 +4,7 @@
     <property name="name" value=""/>
     <property location="${basedir}" name="build"/>
     <property location="${basedir}/WEB-INF/src" name="src.dir"/>
-    <property location="${build}/classes" name="build.classes"/>
+    <property location="${build}/WEB-INF/classes" name="build.classes"/>
     <property location="${build}/dist" name="dist.dir"/> 
     
     <!--Application build-->
@@ -35,5 +35,6 @@
     <target description="Remove all temporary files" name="clean">
         <!--Delete files-->
         <delete dir="${build.classes}"/>
+        <delete dir="${dist.dir}"/>
     </target>
 </project>

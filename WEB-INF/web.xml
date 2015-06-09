@@ -77,6 +77,10 @@
     <servlet-name>CronScheduler</servlet-name>
     <servlet-class>hk.org.ha.pbrc.dashboard.scheduler.CronScheduler</servlet-class>    
   </servlet>
+  <servlet>
+    <servlet-name>WorkflowDetailServlet</servlet-name>
+    <servlet-class>hk.org.ha.pbrc.dashboard.servlet.WorkflowDetailServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>UtilizationChart</servlet-name>
     <url-pattern>/utilizationchart</url-pattern>
@@ -140,6 +144,10 @@
   <servlet-mapping>
     <servlet-name>EndToEndMeasurementServlet</servlet-name>
     <url-pattern>/endtoendmeasurementservlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WorkflowDetailServlet</servlet-name>
+    <url-pattern>/workflowdetailservlet</url-pattern>
   </servlet-mapping>
 <welcome-file-list>
    <welcome-file>login.jsp</welcome-file>

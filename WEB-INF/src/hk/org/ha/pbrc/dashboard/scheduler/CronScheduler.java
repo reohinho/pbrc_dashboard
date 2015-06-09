@@ -37,10 +37,10 @@ public class CronScheduler extends HttpServlet {
             // Tell quartz to schedule the job using our trigger
             sched = factory.getScheduler();            
             sched.start();
-            sched.scheduleJob(end2endJob, end2endTrigger);
-            sched.scheduleJob(reportMonitorJob, reportMonitorTrigger);
-            sched.scheduleJob(pmiMonitorJob, pmiMonitorTrigger);
-            sched.scheduleJob(workflowMonitorJob, workflowMonitorTrigger);
+            //sched.scheduleJob(end2endJob, end2endTrigger);
+            //sched.scheduleJob(reportMonitorJob, reportMonitorTrigger);
+            //sched.scheduleJob(pmiMonitorJob, pmiMonitorTrigger);
+            //sched.scheduleJob(workflowMonitorJob, workflowMonitorTrigger);
         } catch (SchedulerException e) {
             e.printStackTrace();
         }

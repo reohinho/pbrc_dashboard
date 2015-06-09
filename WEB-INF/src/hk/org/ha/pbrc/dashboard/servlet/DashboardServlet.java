@@ -50,7 +50,7 @@ public class DashboardServlet extends HttpServlet {
                 
             //LDAPAuthenticator authenticator = new LDAPAuthenticator();
             //result = authenticator.doAuthenticate(username, password);
-				result = AppConstants.LDAP_OK;
+			result = AppConstants.LDAP_OK;
             request.setAttribute(AppConstants.PARAM_ERR_MSG, result);
 
             if (result!=null && result.equals(AppConstants.LDAP_OK)) {
