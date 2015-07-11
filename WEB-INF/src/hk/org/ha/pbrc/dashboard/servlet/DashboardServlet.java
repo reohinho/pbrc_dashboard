@@ -9,6 +9,9 @@ import java.io.IOException;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
 public class DashboardServlet extends HttpServlet {
     
     public void init(ServletConfig config) throws ServletException {
@@ -66,6 +69,18 @@ public class DashboardServlet extends HttpServlet {
             }
             
         }
+        else if (cmd.equals(AppConstants.CMD_DNSLOOKUP)){
+        	InetAddress inetAddress = InetAddress.getLocalHost();
+			displayStuff("local host", inetAddress);
+			System.out.print("--------------------------");
+			inetAddress = InetAddress.getByName("api.dropbox.com");
+			displayStuff("api.dropbox.com", inetAddress);
+			System.out.print("--------------------------");
+			InetAddress[] inetAddressArray = InetAddress.getAllByName("api.dropbox.com");
+			for (int i = 0; i < inetAddressArray.length; i++) {
+				displayStuff("api.dropbox.com #" + (i + 1), inetAddressArray[i]);
+			}
+        }
         rd.forward(request, response);
     }
     
@@ -74,4 +89,12 @@ public class DashboardServlet extends HttpServlet {
                                                            IOException { 
         doGet(request, response);
     }
+    
+    public static void displayStuff(String whichHost, InetAddress inetAddress) {
+		System.out.println("--------------------------");
+		System.out.println("Which Host:" + whichHost);
+		System.out.println("Canonical Host Name:" + inetAddress.getCanonicalHostName());
+		System.out.println("Host Name:" + inetAddress.getHostName());
+		System.out.println("Host Address:" + inetAddress.getHostAddress());
+	}
 }

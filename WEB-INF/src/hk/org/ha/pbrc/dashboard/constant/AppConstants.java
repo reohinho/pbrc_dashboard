@@ -25,6 +25,7 @@ public class AppConstants {
     public static final String CMD_LOGIN = "l";
     public static final String CMD_REPORT = "r";
     public static final String CMD_CLIENT = "client";
+    public static final String CMD_DNSLOOKUP = "dnslookup";
     
     public static final String PARAM_ERR_MSG = "error_msg";
     public static final String PARAM_USERNAME = "username";
